@@ -14,7 +14,7 @@
 		<dependency>
 			<groupId>io.netty</groupId>
 			<artifactId>netty-tcnative-boringssl-static</artifactId>
-			<version>1.1.33.Fork22</version>
+			<version>1.1.33.Fork23</version>
 		</dependency>
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
@@ -30,7 +30,6 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
-			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
@@ -56,6 +55,26 @@
 						<phase>compile</phase>
 						<goals>
 							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.2.1</version>
+				<configuration>
+					<!-- not append assembly id in release file name -->
+					<appendAssemblyId>false</appendAssemblyId>
+					<descriptors>
+						<descriptor>src/main/resources/package.xml</descriptor>
+					</descriptors>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
 						</goals>
 					</execution>
 				</executions>

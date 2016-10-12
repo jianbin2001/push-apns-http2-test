@@ -1,0 +1,1 @@
+java -cp push-apns-http2-test-1.0.0.jar:./lib/* org.junit.runner.JUnitCore com.relayrides.pushy.apns.ApnsClientBuilderTest
